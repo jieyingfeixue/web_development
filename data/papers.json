@@ -1,0 +1,91 @@
+[
+  {
+    "id": "cvpr-2020-normal-estimation",
+    "title": "Geometry and Learning Co-Supported Normal Estimation for Unstructured Point Cloud",
+    "year": 2020,
+    "type": "CVPR",
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "dblp": "https://dblp.org/rec/conf/cvpr/ZhouCF000WW020",
+    "authors": [
+      { "id": "haoran-zhou", "name": "Haoran Zhou" },
+      { "id": "honghua-chen", "name": "Honghua Chen" },
+      { "id": "yidan-feng", "name": "Yidan Feng" },
+      { "id": "qiong-wang", "name": "Qiong Wang" },
+      { "id": "jing-qin", "name": "Jing Qin" },
+      { "id": "haoran-xie", "name": "Haoran Xie" },
+      { "id": "fu-lee-wang", "name": "Fu Lee Wang" },
+      { "id": "weimingqiang", "name": "Mingqiang Wei" },
+      { "id": "jun-wang", "name": "Jun Wang" }
+    ]
+  },
+  {
+    "id": "cad-2019-geometry-mesh-denoising",
+    "title": "Data-driven Geometry-recovering Mesh Denoising",
+    "year": 2019,
+    "type": "JOURNAL",
+    "venue": "Computer-Aided Design 114: 133–142",
+    "dblp": "https://dblp.org/rec/journals/cad/ChenHRXQGWW19",
+    "authors": [
+      { "id": "honghua-chen", "name": "Honghua Chen" },
+      { "id": "jin-huang", "name": "Jin Huang" },
+      { "id": "oussama-remil", "name": "Oussama Remil" },
+      { "id": "haoran-xie", "name": "Haoran Xie" },
+      { "id": "jing-qin", "name": "Jing Qin" },
+      { "id": "yanwen-guo", "name": "Yanwen Guo" },
+      { "id": "weimingqiang", "name": "Mingqiang Wei" },
+      { "id": "jun-wang", "name": "Jun Wang" }
+    ]
+  },
+  {
+    "id": "cgf-2019-mesh-defiltering",
+    "title": "Mesh Defiltering via Cascaded Geometry Recovery",
+    "year": 2019,
+    "type": "JOURNAL",
+    "venue": "Computer Graphics Forum 38(7): 591–605",
+    "dblp": "https://dblp.org/rec/journals/cgf/WeiGHXZKWQ19",
+    "authors": [
+      { "id": "weimingqiang", "name": "Mingqiang Wei" },
+      { "id": "x-guo", "name": "X. Guo" },
+      { "id": "j-huang", "name": "J. Huang" },
+      { "id": "haoran-xie", "name": "Haoran Xie" },
+      { "id": "hua-zong", "name": "Hua Zong" },
+      { "id": "r-kwan", "name": "R. Kwan" },
+      { "id": "fu-lee-wang", "name": "Fu Lee Wang" },
+      { "id": "jing-qin", "name": "Jing Qin" }
+    ]
+  },
+  {
+    "id": "tvcg-2024-geodualcnn",
+    "title": "GeoDualCNN: Geometry-Supporting Dual Convolutional Neural Network for Noisy Point Clouds",
+    "year": 2023,
+    "type": "JOURNAL",
+    "venue": "IEEE Transactions on Visualization and Computer Graphics 29(2): 1357–1370",
+    "dblp": "https://dblp.org/rec/journals/tvcg/WeiCZXGW23",
+    "authors": [
+      { "id": "weimingqiang", "name": "Mingqiang Wei" },
+      { "id": "honghua-chen", "name": "Honghua Chen" },
+      { "id": "yingkui-zhang", "name": "Yingkui Zhang" },
+      { "id": "haoran-xie", "name": "Haoran Xie" },
+      { "id": "yanwen-guo", "name": "Yanwen Guo" },
+      { "id": "jun-wang", "name": "Jun Wang" }
+    ]
+  },
+  {
+    "id": "tvcg-2024-pointsee",
+    "title": "PointSee: Image Enhances Point Cloud",
+    "year": 2024,
+    "type": "JOURNAL",
+    "venue": "IEEE Transactions on Visualization and Computer Graphics 30(9): 6291–6308",
+    "dblp": "https://dblp.org/rec/journals/vc/ChenWCYRGXWW24",
+    "authors": [
+      { "id": "lipeng-gu", "name": "Lipeng Gu" },
+      { "id": "xuefeng-yan", "name": "Xuefeng Yan" },
+      { "id": "peng-cui", "name": "Peng Cui" },
+      { "id": "lina-gong", "name": "Lina Gong" },
+      { "id": "haoran-xie", "name": "Haoran Xie" },
+      { "id": "fu-lee-wang", "name": "Fu Lee Wang" },
+      { "id": "jing-qin", "name": "Jing Qin" },
+      { "id": "weimingqiang", "name": "Mingqiang Wei" }
+    ]
+  }
+]

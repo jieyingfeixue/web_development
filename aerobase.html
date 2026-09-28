@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AeroBase 3D · 空天智能与智造研究所</title><link rel="stylesheet" href="styles.css">
+  <style>
+    .product-detail.aerobase { --detail-accent:#1c6e8c; --detail-dark:#082a3a; background:#edf4f5; }
+    .aerobase .detail-hero { min-height:620px; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:60px; padding:100px max(24px,calc((100vw - 1180px)/2)); background:linear-gradient(135deg,#edf4f5 0%,#d4e7ea 100%); }
+    .aerobase .detail-kicker,.aerobase .detail-meta { color:var(--detail-accent); font:12px ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .aerobase .detail-hero h1 { margin:18px 0; color:var(--detail-dark); font-size:clamp(54px,8vw,110px); letter-spacing:-.08em; line-height:.9; }
+    .aerobase .detail-hero p { max-width:560px; color:#315361; font-size:18px; line-height:1.8; }
+    .aerobase .cnas-mark { display:inline-flex; align-items:center; gap:14px; margin-top:24px; padding:12px 16px; border:1px solid rgba(8,42,58,.3); background:rgba(248,251,251,.62); color:var(--detail-dark); }
+    .aerobase .cnas-mark strong { font:700 25px/1 Georgia,serif; letter-spacing:.04em; }
+    .aerobase .cnas-mark span { padding-left:14px; border-left:1px solid rgba(8,42,58,.25); font:11px/1.55 ui-monospace,monospace; letter-spacing:.06em; }
+    .aerobase .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+    .aerobase .hero-actions a,.aerobase .product-close > a { padding:13px 16px; border:1px solid var(--detail-dark); color:var(--detail-dark); font-size:13px; font-weight:700; text-decoration:none; transition:.2s ease; }
+    .aerobase .hero-actions a:first-child,.aerobase .product-close > a { background:var(--detail-dark); color:#f8fbfb; }
+    .aerobase .hero-actions a:hover,.aerobase .product-close > a:hover { transform:translateY(-2px); }
+    .aerobase .product-hero-note { display:flex; flex-wrap:wrap; gap:16px; margin-top:34px; color:#55717b; font:11px ui-monospace,monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .aerobase .geometry { position:relative; min-height:420px; background:repeating-linear-gradient(0deg,transparent 0 39px,rgba(28,110,140,.14) 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(28,110,140,.14) 40px); border:1px solid rgba(28,110,140,.35); overflow:hidden; }
+    .aerobase .geometry::before,.aerobase .geometry::after { content:""; position:absolute; inset:16%; border:1px solid var(--detail-accent); transform:rotate(18deg) skew(-12deg); }
+    .aerobase .geometry::after { inset:28%; transform:rotate(-24deg) skew(10deg); border-color:#e25c3d; }
+    .aerobase .geometry-caption { position:absolute; top:18px; left:20px; z-index:2; color:var(--detail-accent); font:11px ui-monospace,monospace; letter-spacing:.12em; }
+    .aerobase .geometry-node { position:absolute; z-index:2; display:flex; flex-direction:column; gap:7px; padding:13px 15px; border:1px solid rgba(8,42,58,.35); background:rgba(248,251,251,.78); color:var(--detail-dark); box-shadow:0 12px 28px rgba(8,42,58,.08); }
+    .aerobase .geometry-node span { color:var(--detail-accent); font:10px ui-monospace,monospace; letter-spacing:.08em; }
+    .aerobase .geometry-node b { font:600 20px/1 Georgia,serif; letter-spacing:-.04em; }
+    .aerobase .geometry-node-a { top:24%; left:8%; }
+    .aerobase .geometry-node-b { top:48%; right:8%; }
+    .aerobase .geometry-node-c { bottom:10%; left:18%; }
+    .aerobase .detail-body { max-width:1180px; margin:auto; padding:90px 24px; }
+    .aerobase .detail-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#a9c5c9; border:1px solid #a9c5c9; }
+    .aerobase .detail-grid article { padding:30px; min-height:180px; background:#f8fbfb; } .aerobase .detail-grid h3 { color:var(--detail-dark); }
+    .aerobase .product-card-index { display:block; margin-bottom:30px; color:var(--detail-accent); font:11px ui-monospace,monospace; letter-spacing:.1em; }
+    .aerobase .detail-status { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; }
+    .aerobase .detail-status span { padding:8px 10px; border:1px solid rgba(8,42,58,.24); color:var(--detail-dark); font:11px ui-monospace,monospace; letter-spacing:.04em; }
+    .aerobase .detail-lead { max-width:760px; color:#315361; line-height:1.8; }
+    .aerobase .detail-results { max-width:1180px; margin:auto; padding:0 24px 90px; }
+    .aerobase .detail-results h2,.aerobase .detail-verification h2,.aerobase .detail-context h2 { max-width:760px; margin:12px 0 18px; color:var(--detail-dark); font-size:clamp(38px,5vw,68px); line-height:1.04; letter-spacing:-.06em; }
+    .aerobase .detail-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:42px; background:#a9c5c9; border:1px solid #a9c5c9; }
+    .aerobase .detail-metric { min-height:170px; padding:24px; background:#f8fbfb; }
+    .aerobase .detail-metric strong { display:block; color:var(--detail-dark); font:600 clamp(24px,3vw,38px)/1.05 Georgia,serif; letter-spacing:-.05em; }
+    .aerobase .detail-metric span { display:block; margin-top:14px; color:var(--detail-accent); font-size:14px; font-weight:700; }
+    .aerobase .detail-metric small { display:block; margin-top:9px; color:#55717b; font-size:12px; line-height:1.6; }
+    .aerobase .detail-verification,.aerobase .detail-context { max-width:1180px; margin:auto; padding:0 24px 90px; }
+    .aerobase .detail-table { overflow-x:auto; margin-top:40px; border-top:1px solid var(--detail-dark); }
+    .aerobase .detail-table table { width:100%; min-width:720px; border-collapse:collapse; color:#315361; font-size:13px; }
+    .aerobase .detail-table th,.aerobase .detail-table td { padding:16px 14px; text-align:left; border-bottom:1px solid #a9c5c9; vertical-align:top; }
+    .aerobase .detail-table th { color:var(--detail-dark); font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+    .aerobase .detail-table td:last-child { color:var(--detail-dark); font-weight:700; }
+    .aerobase .detail-context-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:40px; background:#a9c5c9; border:1px solid #a9c5c9; }
+    .aerobase .detail-context-grid article { min-height:150px; padding:26px; background:#f8fbfb; }
+    .aerobase .detail-context-grid span { color:var(--detail-accent); font:11px ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .aerobase .detail-context-grid p { margin:18px 0 0; color:#315361; line-height:1.8; }
+    .aerobase .product-workflow,.aerobase .product-scenarios,.aerobase .detail-proof { max-width:1180px; margin:auto; padding:0 24px 100px; }
+    .aerobase .product-workflow h2,.aerobase .product-scenarios h2,.aerobase .detail-proof h2,.aerobase .product-close h2 { max-width:760px; margin:12px 0 34px; color:var(--detail-dark); font-size:clamp(38px,5vw,68px); line-height:1.04; letter-spacing:-.06em; }
+    .aerobase .workflow-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#a9c5c9; border:1px solid #a9c5c9; }
+    .aerobase .workflow-grid article { min-height:220px; padding:30px; background:#f8fbfb; }
+    .aerobase .workflow-grid article > span { color:var(--detail-accent); font:600 28px/1 Georgia,serif; }
+    .aerobase .workflow-grid h3 { margin-top:44px; color:var(--detail-dark); }
+    .aerobase .workflow-grid p,.aerobase .scenario-grid p { color:#315361; line-height:1.8; }
+    .aerobase .scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#a9c5c9; border:1px solid #a9c5c9; }
+    .aerobase .scenario-grid article { min-height:180px; padding:26px; background:#f8fbfb; }
+    .aerobase .scenario-grid article > span { color:var(--detail-accent); font:11px ui-monospace,monospace; letter-spacing:.1em; }
+    .aerobase .scenario-grid h3 { margin:22px 0 10px; color:var(--detail-dark); }
+    .aerobase .detail-proof { display:grid; grid-template-columns:230px 1fr; gap:28px 46px; align-items:start; padding-top:18px; }
+    .aerobase .proof-logo { padding:18px; border:1px solid #a9c5c9; background:#f8fbfb; }
+    .aerobase .proof-logo img { display:block; width:100%; max-width:230px; mix-blend-mode:multiply; }
+    .aerobase .proof-logo span { display:block; margin-top:12px; color:var(--detail-accent); font:10px/1.6 ui-monospace,monospace; letter-spacing:.06em; }
+    .aerobase .proof-copy h2 { margin-bottom:18px; }
+    .aerobase .proof-copy p { max-width:700px; color:#315361; line-height:1.8; }
+    .aerobase .proof-tables { grid-column:1 / -1; display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .aerobase .proof-table-card { padding:24px; border:1px solid #a9c5c9; background:#f8fbfb; }
+    .aerobase .proof-table-head { display:flex; align-items:end; justify-content:space-between; gap:16px; padding-bottom:20px; border-bottom:1px solid #a9c5c9; }
+    .aerobase .proof-table-head span { color:var(--detail-accent); font:11px ui-monospace,monospace; letter-spacing:.1em; }
+    .aerobase .proof-table-head strong { color:var(--detail-dark); font:600 24px/1 Georgia,serif; letter-spacing:-.04em; }
+    .aerobase .proof-table-card table { width:100%; border-collapse:collapse; }
+    .aerobase .proof-table-card th,.aerobase .proof-table-card td { padding:13px 0; border-bottom:1px solid rgba(169,197,201,.68); vertical-align:top; font-size:12px; line-height:1.55; }
+    .aerobase .proof-table-card tr:last-child th,.aerobase .proof-table-card tr:last-child td { border-bottom:0; }
+    .aerobase .proof-table-card th { color:#55717b; font-weight:500; text-align:left; }
+    .aerobase .proof-table-card td { color:var(--detail-dark); font-weight:700; text-align:right; }
+    .aerobase .proof-note { grid-column:1 / -1; margin:0; color:#55717b; font-size:12px; line-height:1.7; }
+    .aerobase .product-close { max-width:1180px; margin:auto; padding:20px 24px 110px; display:flex; align-items:end; justify-content:space-between; gap:30px; border-top:1px solid #a9c5c9; }
+    .aerobase .product-close h2 { margin-bottom:0; font-size:clamp(30px,4vw,54px); }
+    @media(max-width:760px){.aerobase .detail-hero{grid-template-columns:1fr;padding:76px 24px}.aerobase .geometry{min-height:340px}.aerobase .detail-grid,.aerobase .workflow-grid,.aerobase .scenario-grid{grid-template-columns:1fr}.aerobase .detail-metrics{grid-template-columns:repeat(2,1fr)}.aerobase .detail-context-grid{grid-template-columns:1fr}.aerobase .detail-proof{grid-template-columns:1fr;gap:28px;padding-top:0}.aerobase .proof-logo{max-width:300px}.aerobase .proof-tables{grid-template-columns:1fr}.aerobase .proof-copy{order:-1}.aerobase .product-close{display:block}.aerobase .product-close > a{display:inline-block;margin-top:24px}}
+    @media(max-width:480px){.aerobase .detail-metrics{grid-template-columns:1fr}}
+  </style>
+</head>
+<body><div class="site-shell product-detail aerobase">
+  <!-- SITE_HEADER -->
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="返回首页">
+      <span class="brand-mark">A²</span>
+      <span class="brand-copy">
+        <strong>空天智能与智造研究所</strong>
+        <span>Institute of Aerospace Intelligence &amp; Advanced Manufacturing · NUAA</span>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="打开导航">☰</button>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="lab.html">研究所</a><a href="products.html">产品</a><a href="research.html">成果</a><a href="team.html">团队</a><button class="theme-toggle" type="button" aria-label="切换到深色模式"><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 15.3A8.5 8.5 0 0 1 8.7 3.3 8.5 8.5 0 1 0 20.7 15.3Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m11.4 0 1.4 1.4M4.9 4.9l1.4 1.4M16 12a4 4 0 1 1-8 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+    </nav>
+  </div>
+</header>
+<!-- /SITE_HEADER -->
+  <main>
+    <section class="detail-hero">
+      <div>
+        <span class="detail-kicker">AERO / 01 · AVIATION 3D MEASUREMENT</span>
+        <h1>AeroBase 3D</h1>
+        <p>AeroBase 3D 是面向航空制造、维修检测与质量控制的三维测量基础软件。点云、CAD、几何测量与航空专用检测在一套工作流中完成，让检测结果更快进入工程决策。</p>
+        <div class="hero-actions"><a href="#capabilities">查看产品能力 ↓</a><a href="#cnas">查看质量背书 ↗</a></div>
+        <div class="product-hero-note"><span>PRODUCT / V1.0</span><span>航空三维测量基础软件</span></div>
+      </div>
+      <div class="geometry" aria-label="点云、CAD 与质量检测的产品视觉"><div class="geometry-caption">POINT CLOUD → CAD → QC</div><div class="geometry-node geometry-node-a"><span>POINT CLOUD</span><b>153 亿点</b></div><div class="geometry-node geometry-node-b"><span>CAD ALIGNMENT</span><b>基准比对</b></div><div class="geometry-node geometry-node-c"><span>AIRCRAFT QC</span><b>误差 / 偏差 / 结论</b></div></div>
+    </section>
+
+    <section class="detail-body" id="capabilities">
+      <div class="detail-meta">WHY AEROBASE 3D</div>
+      <h2>让复杂检测任务，回到一套清晰的工程流程。</h2>
+      <p class="detail-lead">AeroBase 3D 把三维数据处理、几何测量、航空专用检测和结果分析组织在同一个工作台中，减少工具切换，让工程人员从“看点云”走到“做判断”。</p>
+      <div class="detail-grid">
+        <article><span class="product-card-index">01 / DATA</span><h3>点云与 CAD，在同一工作台里工作</h3><p>支持点云数据与 CAD 模型导入、读取加载及 CAD-to-Scan 比对，为后续测量建立统一基准。</p></article>
+        <article><span class="product-card-index">02 / MEASUREMENT</span><h3>把航空特征，变成可执行的检测任务</h3><p>覆盖铆钉齐平度、对缝间隙与阶差、圆孔、波纹度和翼身截面等典型航空检测对象。</p></article>
+        <article><span class="product-card-index">03 / DECISION</span><h3>从几何偏差，走到工程结论</h3><p>支持舱段拟实对装与整机形变分析，将误差、偏差和测量结果转化为装配与质量控制依据。</p></article>
+      </div>
+    </section>
+
+    <section class="product-workflow">
+      <div class="detail-meta">PRODUCT WORKFLOW</div>
+      <h2>从数据准备到检测结论，三步完成。</h2>
+      <div class="workflow-grid">
+        <article><span>01</span><h3>导入基准数据</h3><p>加载现场点云与 CAD 模型，建立可比对的三维数据基础。</p></article>
+        <article><span>02</span><h3>选择检测任务</h3><p>围绕铆钉、对缝、圆孔、型面与装配关系，进入对应的航空检测流程。</p></article>
+        <article><span>03</span><h3>输出工程结果</h3><p>获得误差、偏差、对装与形变分析结果，为质量判定和现场决策提供依据。</p></article>
+      </div>
+    </section>
+
+    <section class="product-scenarios">
+      <div class="detail-meta">DESIGNED FOR AIRCRAFT QUALITY</div>
+      <h2>为航空制造与维修检测的关键节点而生。</h2>
+      <div class="scenario-grid">
+        <article><span>01 / FASTENERS</span><h3>铆钉齐平度</h3><p>识别铆钉与蒙皮的几何关系，输出齐平度误差。</p></article>
+        <article><span>02 / JOINTS</span><h3>对缝间隙与阶差</h3><p>面向结构连接处的间隙、阶差测量，辅助装配质量判断。</p></article>
+        <article><span>03 / HOLES</span><h3>圆孔与位置度</h3><p>检测孔的空间位置与直径偏差，为加工和装配提供数据依据。</p></article>
+        <article><span>04 / SURFACES</span><h3>波纹度与翼身截面</h3><p>评估飞机型面与结构表面偏差，支持外形质量控制。</p></article>
+        <article><span>05 / ASSEMBLY</span><h3>舱段拟实对装</h3><p>分析虚拟模型与实测对象的装配位置和角度关系。</p></article>
+        <article><span>06 / DEFORMATION</span><h3>整机形变分析</h3><p>结合点云与 CAD 模型观察整机形变，为结构分析提供参考。</p></article>
+      </div>
+    </section>
+
+    <section class="detail-proof" id="cnas">
+      <div class="proof-logo"><img src="imgs/cnas-testing-l18301.png" alt="CNAS 检测实验室认可标识，CNAS L18301"><span>CNAS 检测实验室认可标识<br>CNAS L18301</span></div>
+      <div class="proof-copy"><div class="detail-meta">QUALITY PROOF / CNAS</div><h2>经过 CNAS 认可实验室验证的精度与性能。</h2><p>AeroBase 3D V1.0 面向航空三维测量场景，完成了从几何精度到百亿级点云处理的第三方验证。关键结果如下。</p></div>
+      <div class="proof-tables">
+        <div class="proof-table-card"><div class="proof-table-head"><span>01 / ACCURACY</span><strong>测量精度</strong></div><table><tbody><tr><th>铆钉齐平度</th><td>误差 0.01 mm</td></tr><tr><th>对缝间隙</th><td>平均误差 −0.012 mm</td></tr><tr><th>对缝阶差</th><td>平均误差 0.015 mm</td></tr><tr><th>圆孔位置度 / 直径</th><td>误差 0.02 / 0.02 mm</td></tr><tr><th>翼身截面偏差</th><td>误差 0.009 mm</td></tr><tr><th>拟实对装位置 / 角度</th><td>误差 0.08 mm / 0.08°</td></tr><tr><th>整机形变分析</th><td>误差 0.08 mm</td></tr></tbody></table></div>
+        <div class="proof-table-card"><div class="proof-table-head"><span>02 / PERFORMANCE</span><strong>处理性能</strong></div><table><tbody><tr><th>点云读取</th><td>15,303,300,300 点<br>0.182 s / 亿点</td></tr><tr><th>铆钉检测</th><td>0.86 s / 百个</td></tr><tr><th>圆孔检测</th><td>0.18 s / 百孔</td></tr><tr><th>波纹度检测</th><td>0.095 s / m²</td></tr><tr><th>翼身截面检测</th><td>0.777 s / 截面</td></tr><tr><th>拟实对装</th><td>0.048 s / 对接面</td></tr><tr><th>整机形变分析</th><td>24.236 s / 千万点</td></tr></tbody></table></div>
+      </div>
+      <p class="proof-note">验证依据：GB/T 25000.51-2016；第三方检测机构：苏测检测技术有限公司；测试版本：AeroBase 3D V1.0。</p>
+    </section>
+
+    <section class="product-close">
+      <div><div class="detail-meta">NEXT STEP</div><h2>把你的现场测量流程，交给一套更完整的工具。</h2></div><a href="join.html">讨论现场应用 ↗</a>
+    </section>
+  </main>  <!-- SITE_FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <strong>空天智能与智造研究所 · NUAA</strong>
+        <p>面向航空制造与维修检测，构建从三维数据到工程应用的研究与产品体系。</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html">首页</a><br><a href="products.html">产品</a><br><a href="research.html">成果</a><br><a href="team.html">团队</a><br><a href="join.html">加入我们</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>欢迎联系开展科研与技术合作</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 AIIM Lab</span><span>NUAA</span></div>
+  </div>
+</footer>
+<!-- /SITE_FOOTER -->
+</div><script src="script.js"></script></body></html>

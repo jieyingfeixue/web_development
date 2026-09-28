@@ -1,0 +1,43 @@
+# ===== 构建产物 =====
+# scripts/publish.mjs 会从源码重新生成发布目录
+/dist/
+# scripts/generate-papers.mjs 生成的论文数据
+/generated/
+# 本地 PDF 渲染、截图和临时检查文件
+/tmp/
+
+# ===== Node.js / 包管理器 =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+
+# ===== 本地配置与敏感信息 =====
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+*.pem
+*.key
+
+# ===== 编辑器与操作系统文件 =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+*.temp
+*.bak
+*.log
+
+# ===== 覆盖率与缓存 =====
+coverage/
+.cache/
+.parcel-cache/
+.eslintcache

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aerohand 3D · 空天智能与智造研究所</title><link rel="stylesheet" href="styles.css">
+  <style>
+    .product-detail.aerohand { --detail-accent:#ef7654; --detail-dark:#20262b; background:#f7f1e8; }
+    .aerohand .detail-hero { max-width:1240px; margin:auto; min-height:650px; display:grid; grid-template-columns:.82fr 1.18fr; align-items:center; gap:70px; padding:90px 30px; }
+    .aerohand .detail-kicker,.aerohand .detail-meta { color:var(--detail-accent); font:12px ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .aerohand .detail-hero h1 { margin:18px 0; color:var(--detail-dark); font-size:clamp(48px,7vw,64px); line-height:.92; letter-spacing:-.07em; }
+    .aerohand .detail-hero p { color:#5b5b55; font-size:18px; line-height:1.8; }
+    .aerohand .device-panel { position:relative; min-height:450px; padding:34px; background:#252b30; box-shadow:24px 24px 0 #e9d8c5; }
+    .aerohand .device { position:absolute; inset:70px 24%; border:5px solid #d9d6c8; border-radius:34px 34px 58px 58px; background:linear-gradient(135deg,#59636a,#1f262b 65%); transform:rotate(-8deg); box-shadow:inset 10px 0 0 rgba(255,255,255,.1),12px 18px 0 #11171a; }
+    .aerohand .device::before { content:"3D"; position:absolute; left:18%; right:18%; top:24%; padding:24px 0; border:1px solid #ef7654; color:#f4b09c; text-align:center; font:34px Georgia,serif; }
+    .aerohand .device::after { content:"SCAN / READY"; position:absolute; left:18%; right:18%; bottom:18%; color:#ef7654; font:10px ui-monospace,monospace; letter-spacing:.1em; text-align:center; }
+    .aerohand .detail-body { max-width:1180px; margin:auto; padding:30px 30px 100px; }
+    .aerohand .detail-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:start; } .aerohand .feature-list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .aerohand .feature-list div { padding:18px; border-left:3px solid var(--detail-accent); background:#fffaf3; font-weight:600; }
+    .aerohand .field-note { padding:28px; border:1px solid #d8c9b7; background:#efe2d3; color:#5b5148; line-height:1.8; }
+    @media(max-width:760px){.aerohand .detail-hero{grid-template-columns:1fr;padding:72px 24px}.aerohand .device-panel{min-height:330px}.aerohand .detail-grid{grid-template-columns:1fr}.aerohand .feature-list{grid-template-columns:1fr}}
+  </style>
+</head>
+<body><div class="site-shell product-detail aerohand">
+  <!-- SITE_HEADER -->
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="返回首页">
+      <span class="brand-mark">A²</span>
+      <span class="brand-copy">
+        <strong>空天智能与智造研究所</strong>
+        <span>Institute of Aerospace Intelligence &amp; Advanced Manufacturing · NUAA</span>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="打开导航">☰</button>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="lab.html">研究所</a><a href="products.html">产品</a><a href="research.html">成果</a><a href="team.html">团队</a><button class="theme-toggle" type="button" aria-label="切换到深色模式"><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 15.3A8.5 8.5 0 0 1 8.7 3.3 8.5 8.5 0 1 0 20.7 15.3Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m11.4 0 1.4 1.4M4.9 4.9l1.4 1.4M16 12a4 4 0 1 1-8 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+    </nav>
+  </div>
+</header>
+<!-- /SITE_HEADER -->
+  <main><section class="detail-hero"><div><span class="detail-kicker">AERO / 02 · HANDHELD INSPECTION</span><h1>Aerohand 3D</h1><p>基于结构光扫描的手持式五合一检测仪，将三维采集与航空检测方法带到真实现场。</p><a class="btn" href="products.html">返回产品系列</a></div><div class="device-panel"><div class="device" aria-label="手持式三维检测仪视觉"></div></div></section><section class="detail-body"><div class="detail-grid"><div><div class="detail-meta">FIVE INSPECTIONS / ONE DEVICE</div><h2>在现场完成从采集到判断。</h2><p>轻量化设备结合结构光三维扫描与专用算法，适合快速部署和现场检测。</p><div class="feature-list"><div>铆钉检测</div><div>对缝检测</div><div>圆孔检测</div><div>损伤检测</div><div>波纹度检测</div><div>快速结果反馈</div></div></div><aside class="field-note"><strong>FIELD WORKFLOW</strong><br><br>扫描目标区域<br>→ 选择检测任务<br>→ 获取测量结果<br>→ 输出质量判断</aside></div></section></main>
+  <!-- SITE_FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <strong>空天智能与智造研究所 · NUAA</strong>
+        <p>面向航空制造与维修检测，构建从三维数据到工程应用的研究与产品体系。</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html">首页</a><br><a href="products.html">产品</a><br><a href="research.html">成果</a><br><a href="team.html">团队</a><br><a href="join.html">加入我们</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>欢迎联系开展科研与技术合作</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 AIIM Lab</span><span>NUAA</span></div>
+  </div>
+</footer>
+<!-- /SITE_FOOTER -->
+</div><script src="script.js"></script></body></html>

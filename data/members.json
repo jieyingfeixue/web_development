@@ -1,0 +1,76 @@
+[
+  {
+    "id": "weimingqiang",
+    "name": "魏明强",
+    "nameEn": "Mingqiang Wei",
+    "authorNames": ["Mingqiang Wei"],
+    "group": "faculty",
+    "title": "教授 / 研究所负责人",
+    "affiliation": "南京航空航天大学计算机科学与技术学院 / 软件学院",
+    "unit": "空天智能与智造研究所",
+    "photo": "imgs/bio_weimingqiang.jpg",
+    "email": "",
+    "researchAreas": ["计算机图形学", "三维测量", "装配质量控制", "航空智能检测"],
+    "bio": "content/members/weimingqiang.md"
+  },
+  {
+    "id": "quanwuzhou",
+    "name": "全五洲",
+    "group": "student",
+    "title": "博士生",
+    "affiliation": "南京航空航天大学计算机科学与技术学院 / 软件学院",
+    "unit": "空天智能与智造研究所",
+    "photo": "imgs/bio_wuzhouquan.jpg",
+    "email": "q.wuzhou@gmail.com",
+    "researchAreas": ["计算机视觉", "遥感图像处理", "目标跟踪/检测"],
+    "bio": "content/members/wuzhouquan.md"
+  },
+  {
+    "id": "lipeng",
+    "name": "李鹏",
+    "group": "student",
+    "title": "博士生",
+    "affiliation": "南京航空航天大学计算机科学与技术学院 / 软件学院",
+    "unit": "空天智能与智造研究所",
+    "photo": "imgs/bio_lipeng.jpg",
+    "email": "l.peng@gmail.com",
+    "researchAreas": ["医学影像处理", "伪装目标检测"],
+    "bio": "content/members/lipeng.md"
+  },
+  {
+    "id": "zhuzhe",
+    "name": "朱哲",
+    "group": "student",
+    "title": "博士生",
+    "affiliation": "南京航空航天大学计算机科学与技术学院 / 软件学院",
+    "unit": "空天智能与智造研究所",
+    "photo": "imgs/bio_zhuzhe.jpg",
+    "email": "z.zhe@gmail.com",
+    "researchAreas": ["计算机图形学", "三维生成", "三维语义分割", "三维重建"],
+    "bio": "content/members/zhuzhe.md"
+  },
+  {
+    "id": "zhengchengyu",
+    "name": "郑成宇",
+    "group": "student",
+    "title": "博士生",
+    "affiliation": "南京航空航天大学计算机科学与技术学院 / 软件学院",
+    "unit": "空天智能与智造研究所",
+    "photo": "imgs/bio_zhengchengyu.png",
+    "email": "z.chengyu@gmail.com",
+    "researchAreas": ["计算机图形学", "三维生成", "三维语义分割", "三维重建"],
+    "bio": "content/members/zhengchengyu.md"
+  },
+  {
+    "id": "chenhonghua",
+    "name": "陈红华",
+    "group": "student",
+    "title": "博士生",
+    "affiliation": "南京航空航天大学计算机科学与技术学院 / 软件学院",
+    "unit": "空天智能与智造研究所",
+    "photo": "imgs/bio_zhengchengyu.png",
+    "email": "z.chengyu@gmail.com",
+    "researchAreas": ["计算机图形学", "三维生成", "三维语义分割", "三维重建"],
+    "bio": "content/members/zhengchengyu.md"
+  }
+]

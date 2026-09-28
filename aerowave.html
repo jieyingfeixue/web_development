@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aerowave 3D · 空天智能与智造研究所</title><link rel="stylesheet" href="styles.css">
+  <style>
+    .product-detail.aerowave { --detail-accent:#d64436; --detail-dark:#17243a; background:#f4f0e9; }
+    .aerowave .detail-hero { position:relative; min-height:680px; display:flex; align-items:flex-end; padding:110px max(24px,calc((100vw - 1180px)/2)); overflow:hidden; background:#17243a; color:#f4f0e9; }
+    .aerowave .detail-hero::before { content:""; position:absolute; inset:0; opacity:.55; background:repeating-radial-gradient(ellipse at 70% 40%,transparent 0 28px,rgba(244,240,233,.22) 29px 30px,transparent 31px 58px); transform:rotate(-12deg) scale(1.5); }
+    .aerowave .detail-copy { position:relative; z-index:1; max-width:700px; }
+    .aerowave .detail-kicker,.aerowave .detail-meta { color:#f08a73; font:12px ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .aerowave .detail-hero h1 { margin:18px 0; font-size:clamp(56px,9vw,126px); line-height:.85; letter-spacing:-.09em; }
+    .aerowave .detail-hero p { max-width:590px; color:#d7dce0; font-size:19px; line-height:1.8; }
+    .aerowave .detail-hero .btn { border-color:#f4f0e9; color:#f4f0e9; }
+    .aerowave .detail-body { max-width:1180px; margin:auto; padding:100px 24px; }
+    .aerowave .wave-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:34px; border-top:1px solid #c9c1b5; }
+    .aerowave .wave-stats article { padding:28px 22px; border-right:1px solid #c9c1b5; } .aerowave .wave-stats article:last-child{border-right:0}
+    .aerowave .wave-stats strong { display:block; color:var(--detail-accent); font:42px Georgia,serif; } .aerowave .wave-stats span { color:#5a5b60; }
+    .aerowave .detail-note { margin-top:70px; padding:34px; background:#e9e0d2; border-left:5px solid var(--detail-accent); line-height:1.8; }
+    @media(max-width:760px){.aerowave .detail-hero{min-height:600px;padding:90px 24px 70px}.aerowave .wave-stats{grid-template-columns:1fr}.aerowave .wave-stats article{border-right:0;border-bottom:1px solid #c9c1b5}}
+  </style>
+</head>
+<body><div class="site-shell product-detail aerowave">
+  <!-- SITE_HEADER -->
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="返回首页">
+      <span class="brand-mark">A²</span>
+      <span class="brand-copy">
+        <strong>空天智能与智造研究所</strong>
+        <span>Institute of Aerospace Intelligence &amp; Advanced Manufacturing · NUAA</span>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="打开导航">☰</button>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="lab.html">研究所</a><a href="products.html">产品</a><a href="research.html">成果</a><a href="team.html">团队</a><button class="theme-toggle" type="button" aria-label="切换到深色模式"><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 15.3A8.5 8.5 0 0 1 8.7 3.3 8.5 8.5 0 1 0 20.7 15.3Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m11.4 0 1.4 1.4M4.9 4.9l1.4 1.4M16 12a4 4 0 1 1-8 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+    </nav>
+  </div>
+</header>
+<!-- /SITE_HEADER -->
+  <main><section class="detail-hero"><div class="detail-copy"><span class="detail-kicker">AERO / 03 · LARGE-SURFACE INSPECTION</span><h1>Aerowave<br>3D</h1><p>面向超大型曲面的波纹度测量与分析软件，将大尺寸表面的形貌偏差转化为清晰、可追踪的质量判断。</p><a class="btn" href="products.html">返回产品系列</a></div></section><section class="detail-body"><div class="detail-meta">SURFACE INTELLIGENCE</div><h2>读懂每一道曲面波纹。</h2><p>针对大型航空结构件的三维测量与形貌分析，帮助工程人员识别、量化并复核曲面质量。</p><div class="wave-stats"><article><strong>01</strong><span>大尺寸曲面测量</span></article><article><strong>02</strong><span>波纹度特征分析</span></article><article><strong>03</strong><span>质量结果评估</span></article></div><div class="detail-note"><strong>从测量到评估</strong><br>以统一的数据流程连接现场采集、曲面分析和质量报告，为航空制造与维修提供稳定的工程依据。</div></section></main>
+  <!-- SITE_FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <strong>空天智能与智造研究所 · NUAA</strong>
+        <p>面向航空制造与维修检测，构建从三维数据到工程应用的研究与产品体系。</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html">首页</a><br><a href="products.html">产品</a><br><a href="research.html">成果</a><br><a href="team.html">团队</a><br><a href="join.html">加入我们</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>欢迎联系开展科研与技术合作</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 AIIM Lab</span><span>NUAA</span></div>
+  </div>
+</footer>
+<!-- /SITE_FOOTER -->
+</div><script src="script.js"></script></body></html>
