@@ -21,3 +21,108 @@
 .fusion-news,.fusion-team-home{padding:0}.fusion-news>.section{padding-top:64px;padding-bottom:76px}.fusion-team-home>.section{padding-top:76px;padding-bottom:84px}.news-layout>div:last-child{display:flex;min-height:510px;flex-direction:column}.news-layout .news-list{flex:1}.news-layout .news-more{margin-top:18px}
 .fusion-intro.hero-single{display:block}.fusion-intro.hero-single h1{max-width:none;font-size:clamp(54px,5.2vw,78px);line-height:.98;letter-spacing:-.055em;white-space:nowrap}.fusion-hero .wheel-shell{margin-top:34px}.fusion-hero{padding-top:70px}
 @media(max-width:900px){.fusion-intro.hero-single h1{white-space:normal;font-size:clamp(48px,11vw,76px)}.fusion-hero .wheel-shell{margin-top:28px}}
+
+/* ════════════════════════════════════════════════════════
+   共享层：吸附导航 + 三层页脚
+   内容真源：partials/header.html、partials/footer.html
+   改完跑 node scripts/build-layout.mjs
+   ════════════════════════════════════════════════════════ */
+
+.fusion-top{position:sticky;top:0;z-index:60}
+
+.site-footer{padding:36px 0 22px;background:#061c2b;color:#fff}
+.site-footer a{color:#fff;text-decoration:none}
+.footer-links{display:flex;flex-wrap:wrap;gap:10px 24px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.16)}
+.footer-links a{display:inline-flex;align-items:center;gap:8px;font-size:13px;opacity:.82;transition:opacity .2s ease}
+.footer-links a:hover{opacity:1}
+.footer-links svg{width:16px;height:16px;flex:0 0 auto}
+.footer-brand{display:flex;flex-direction:column;align-items:center;text-align:center;gap:15px;padding:36px 0 32px}
+.footer-brand-lock{display:flex;align-items:center;gap:14px}
+.footer-brand-lock img{width:46px;height:46px;object-fit:contain}
+.footer-brand-lock b{font-size:17px;letter-spacing:.01em}
+.footer-brand p{margin:0;max-width:640px;color:rgba(255,255,255,.66);font-size:13px;line-height:1.8}
+.footer-brand .footer-mail{color:rgba(255,255,255,.8);font-size:12px}
+.footer-brand .todo{display:inline-block;padding:1px 8px;border:1px dashed rgba(255,255,255,.45);border-radius:3px;font-size:11px}
+.footer-bottom{padding-top:16px;border-top:1px solid rgba(255,255,255,.16);text-align:center;color:rgba(255,255,255,.45);font-size:11px}
+
+@media(max-width:760px){
+  .footer-brand-lock{flex-direction:column;gap:10px}
+  .footer-brand-lock b{font-size:15px}
+}
+/* ════════════════════════════════════════════════════════
+   全站底纹水印：每个区块一枚完整的大南航校徽
+   —— 居中、不重复（no-repeat）。尺寸随区块高度自适应：
+      区块高度的 86%，最大 680px。所以不会被裁切，也不会像
+      平铺那样在屏幕上出现很多枚。
+   —— 水印是该区块 background 的最上层图层。background 天然绘制
+      在文字、卡片、边框、图片之下，因此不需要给任何内容加
+      z-index，也不会遮挡内容，更不需要视差。
+   —— 导航栏 .fusion-top 与页脚 .site-footer 不铺水印。
+      外层容器 .site-page 也不铺，否则整页只会有一枚、落在页中。
+
+   取色：校徽原图是「蓝色实心圆盘 + 白色线稿」。只保留白色线稿、
+   把蓝底盘整片丢掉——否则大尺寸下会变成一个灰色实心圆：
+       alpha = (亮度/255 - 0.62) / (1 - 0.62) × 原alpha × factor
+
+   两张图，同一套线稿，只换颜色：
+     assets/watermark-on-light.png   #6E7780  浅色区块
+     assets/watermark-on-dark.png    #C6CBD0  深色区块
+   重新生成：powershell -File scripts/make-watermark.ps1
+
+   ★ 尺寸统一：min(88%, 520px) —— 绝大多数区块都会顶到 520px，
+     所以各区块的校徽看起来一样大；只有高度不足 591px 的区块才会
+     按比例缩小，以免被裁切。
+
+   不加底纹的地方：
+     .fusion-top    顶部导航
+     .site-footer   页脚
+     .site-page     外层容器（整页只会有一枚、落在页中）
+     .fusion-hero   首页首屏
+     .fusion-outputs 首页「成果要被看见」成果展示栏
+     .fusion-trust / .fusion-chain
+                    首页那两条 90–116px 高的窄条，放大校徽只会被
+                    裁成一条横带，索性不铺
+   ════════════════════════════════════════════════════════ */
+
+/* 浅色区块 */
+.fusion-research,
+.fusion-team-home,
+.page-section,
+.page-section.alt,
+.detail-hero-v2,
+.fusion-team {
+  background-image: url(assets/watermark-on-light.png);
+  background-size: auto min(88%, 520px);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* 深色区块 */
+.fusion-products,
+.page-hero-v2,
+.page-section.dark {
+  background-image: url(assets/watermark-on-dark.png);
+  background-size: auto min(88%, 520px);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* 渐变背景的区块：水印在前（最上层），原渐变垫底 */
+.fusion-news {
+  background-image: url(assets/watermark-on-light.png), linear-gradient(140deg,#eef3f4,#f4f1e9 55%,#e4eef1);
+  background-size: auto min(88%, 520px), cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center center;
+}
+.page-cta {
+  background-image: url(assets/watermark-on-dark.png), linear-gradient(110deg,#a53231,#70283a 30%,#0a344e 75%,#061d2c);
+  background-size: auto min(88%, 520px), cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center center;
+}
+.fusion-join {
+  background-image: url(assets/watermark-on-dark.png), linear-gradient(110deg,#a53231 0,#70283a 28%,#0a344e 72%,#061d2c 100%);
+  background-size: auto min(88%, 520px), cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center center;
+}

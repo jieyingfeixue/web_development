@@ -1,0 +1,10 @@
+﻿# 统一使用 LF 行尾，避免 Windows / macOS 之间出现「整个文件都改了」的假差异
+* text=auto eol=lf
+
+# 二进制文件不做换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.pdf binary
+*.docx binary
