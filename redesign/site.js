@@ -10,6 +10,13 @@
   function start(){clearInterval(timer);timer=setInterval(()=>show(active+1),5200);} shell.querySelector('.wheel-prev').addEventListener('click',()=>show(active-1,true));shell.querySelector('.wheel-next').addEventListener('click',()=>show(active+1,true));slides.forEach((s,i)=>s.addEventListener('click',()=>i!==active&&show(i,true)));shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',start);show(0);start();
 })();
 (() => {
+  // 团队卡片：文字超出卡片高度时，底部渐隐提示「下面还有」
+  const zones=[...document.querySelectorAll('.team-card-scroll')]; if(!zones.length)return;
+  const sync=el=>{const more=el.scrollHeight-el.clientHeight-el.scrollTop>2;el.closest('.team-card-scrollwrap')?.classList.toggle('has-more',more);};
+  zones.forEach(el=>{sync(el);el.addEventListener('scroll',()=>sync(el),{passive:true});});
+  addEventListener('resize',()=>zones.forEach(sync));
+})();
+(() => {
   const visual=document.querySelector('.news-visual'); if(!visual)return;
   const image=visual.querySelector('img'),kicker=document.querySelector('#newsKicker'),title=document.querySelector('#newsTitle'),summary=document.querySelector('#newsSummary');
   const items=[...document.querySelectorAll('.news-item')];
