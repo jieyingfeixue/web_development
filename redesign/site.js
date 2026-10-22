@@ -10,6 +10,31 @@
   function start(){clearInterval(timer);timer=setInterval(()=>show(active+1),5200);} shell.querySelector('.wheel-prev').addEventListener('click',()=>show(active-1,true));shell.querySelector('.wheel-next').addEventListener('click',()=>show(active+1,true));slides.forEach((s,i)=>s.addEventListener('click',()=>i!==active&&show(i,true)));shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',start);show(0);start();
 })();
 (() => {
+  // 研究所页：新闻轮播（自动播放，悬停/聚焦暂停）
+  const root=document.querySelector('.inst-carousel-shell'); if(!root)return;
+  const track=root.querySelector('.inst-track');
+  const slides=[...root.querySelectorAll('.inst-slide')];
+  const dots=root.querySelector('.inst-dots');
+  const counter=root.querySelector('.inst-counter');
+  let i=0,timer;
+  function go(n){
+    i=(n+slides.length)%slides.length;
+    track.style.transform=`translateX(-${i*100}%)`;
+    [...dots.children].forEach((d,k)=>d.classList.toggle('active',k===i));
+    counter.textContent=`${String(i+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+    slides.forEach((s,k)=>s.setAttribute('aria-hidden',k===i?'false':'true'));
+  }
+  function start(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(()=>go(i+1),6000);}}
+  slides.forEach((_,n)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',`第 ${n+1} 条新闻`);b.addEventListener('click',()=>{go(n);start();});dots.appendChild(b);});
+  root.querySelector('.inst-prev').addEventListener('click',()=>{go(i-1);start();});
+  root.querySelector('.inst-next').addEventListener('click',()=>{go(i+1);start();});
+  root.addEventListener('mouseenter',()=>clearInterval(timer));
+  root.addEventListener('mouseleave',start);
+  root.addEventListener('focusin',()=>clearInterval(timer));
+  root.addEventListener('focusout',start);
+  go(0); start();
+})();
+(() => {
   // 团队卡片：文字超出卡片高度时，底部渐隐提示「下面还有」
   const zones=[...document.querySelectorAll('.team-card-scroll')]; if(!zones.length)return;
   const sync=el=>{const more=el.scrollHeight-el.clientHeight-el.scrollTop>2;el.closest('.team-card-scrollwrap')?.classList.toggle('has-more',more);};
