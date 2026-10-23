@@ -276,7 +276,7 @@
 /* ════════════════════════════════════════════════════════
    研究所页 · 新闻轮播 + 最新动态
    ════════════════════════════════════════════════════════ */
-.inst-news { padding: 42px 0 56px; background: #f4f1e9; }
+.inst-news { padding: 22px 0 26px; background: #f4f1e9; }
 /* 用 grid areas 把「最新动态」和轮播放进同一行，
    让右侧卡片的高度与左侧新闻框严格对齐，控制条另起一行 */
 .inst-news-grid {
@@ -311,12 +311,35 @@
 .inst-rail-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid #ecebe6; }
 .inst-rail-head strong { font-size: 15px; }
 .inst-rail-head a { color: var(--red); font-size: 12px; text-decoration: none; }
-.inst-rail ul { list-style: none; margin: 0; padding: 0; }
-.inst-rail li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f2f0eb; }
-.inst-rail li:last-child { border-bottom: 0; padding-bottom: 0; }
-.inst-rail time { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
-.inst-rail a { color: #2a3a46; font-size: 12.5px; line-height: 1.6; text-decoration: none; }
-.inst-rail a:hover { color: var(--red); }
+.inst-rail ul { list-style: none; margin: 0; padding: 0; display: grid; }
+/* 只留极淡的横向分隔线，去掉左右竖线，不成「框」 */
+.inst-rail li {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 0 2px;
+  border-bottom: 1px solid #f2eee5;
+}
+.inst-rail li:last-child { border-bottom: 0; }
+.inst-rail time {
+  color: var(--muted);
+  font: 11px ui-monospace, monospace;
+  letter-spacing: .04em;
+}
+/* 标题只占一行，超出省略号 */
+.inst-rail li a {
+  min-width: 0;
+  color: #2a3a46;
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.inst-rail li a:hover { color: var(--red); }
 
 /* 研究所页：所有区块统一米黄底色（水印是 background-image，不受影响） */
 .institute-page,
@@ -326,11 +349,12 @@
 .institute-page .fusion-team-home { background-color: #f4f1e9; }
 
 /* 研究所页区块多，统一收紧纵向留白（其它页面不受影响） */
-.institute-page .page-section { padding: 64px 0; }
+.institute-page .page-section { padding: 24px 0; }
+.institute-page .page-section-head { margin-bottom: 20px; }
 .institute-page .fusion-team-home { padding: 0; }
-.institute-page .fusion-team-home > .section { padding-top: 64px; padding-bottom: 64px; }
+.institute-page .fusion-team-home > .section { padding-top: 24px; padding-bottom: 24px; }
 .institute-page .fusion-products > .section,
-.institute-page .fusion-research > .section { padding-top: 64px; padding-bottom: 64px; }
+.institute-page .fusion-research > .section { padding-top: 32px; padding-bottom: 32px; }
 
 @media (max-width: 980px) {
   .inst-news-grid {
@@ -339,7 +363,7 @@
   }
 }
 @media (max-width: 640px) {
-  .inst-news { padding: 30px 0 52px; }
+  .inst-news { padding: 22px 0 30px; }
   .inst-slide img { aspect-ratio: 4 / 3; }
   .inst-slide-overlay { padding: 70px 18px 20px; }
   .inst-controls { gap: 10px; }
@@ -370,22 +394,43 @@
 .proof-note { grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid #ecebe6; color: var(--muted); font-size: 12px; line-height: 1.9; }
 
 /* 从算法到产品 */
-.bridge-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 22px; align-items: start; }
-.bridge-steps { display: grid; gap: 14px; }
-.bridge-step { padding: 24px 26px; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(9,36,52,.06); }
-.bridge-step > span { color: var(--red); font: 700 10px ui-monospace,monospace; letter-spacing: .14em; }
-.bridge-step h3 { margin: 9px 0; font-size: 19px; }
-.bridge-step p { margin: 0; color: #4a5763; font-size: 13.5px; line-height: 1.8; }
+/* 行高固定：左三卡与右侧论文框都按这个高度对齐 */
+.bridge-grid { display: grid; grid-template-columns: 1.12fr .88fr; grid-template-rows: 462px; gap: 22px; align-items: stretch; }
 
-.bridge-papers { padding: 26px; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(9,36,52,.06); }
-.bridge-papers-head { padding-bottom: 14px; border-bottom: 1px solid #ecebe6; }
+/* 左侧三张卡等高；文字超出在卡内滚动 */
+.bridge-steps { display: grid; grid-template-rows: repeat(3, 1fr); gap: 14px; min-height: 0; }
+.bridge-step { display: flex; flex-direction: column; min-height: 0; overflow: hidden; padding: 20px 24px 18px; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(9,36,52,.06); }
+.bridge-step > span { flex: 0 0 auto; color: var(--red); font: 700 10px ui-monospace,monospace; letter-spacing: .14em; }
+.bridge-step h3 { flex: 0 0 auto; margin: 7px 0 9px; font-size: 18px; }
+.bridge-step-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 10px; }
+.bridge-step-scroll p { margin: 0; color: #4a5763; font-size: 13.5px; line-height: 1.8; }
+
+/* 右侧论文框：高度与左侧三卡之和一致，论文列表内部滚动 */
+.bridge-papers { display: flex; flex-direction: column; min-height: 0; padding: 24px 26px; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(9,36,52,.06); }
+.bridge-papers-head { flex: 0 0 auto; padding-bottom: 14px; border-bottom: 1px solid #ecebe6; }
 .bridge-papers-head span { display: block; color: var(--red); font: 700 10px ui-monospace,monospace; letter-spacing: .14em; }
 .bridge-papers-head b { display: block; margin-top: 7px; font-size: 17px; }
+.bridge-papers-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 10px; }
 .bridge-papers ul { list-style: none; margin: 0; padding: 0; }
-.bridge-papers li { display: flex; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid #f1efea; font-size: 12.5px; line-height: 1.55; }
-.bridge-papers li b { font-weight: 400; color: #2a3a46; }
-.bridge-papers li span { flex: 0 0 auto; color: var(--muted); font-size: 11px; }
-.bridge-papers > a { display: inline-block; margin-top: 16px; color: var(--red); font-size: 12px; }
+.bridge-papers li { padding: 15px 0; border-bottom: 1px solid #f1efea; }
+.bridge-papers li:last-child { border-bottom: 0; padding-bottom: 4px; }
+
+.paper-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.paper-meta span { color: var(--red); font: 700 10px ui-monospace,monospace; letter-spacing: .12em; }
+.paper-meta a { color: var(--muted); font-size: 11px; text-decoration: none; }
+.paper-meta a:hover { color: var(--red); }
+.bridge-papers h4 { margin: 7px 0 8px; color: #1c2c38; font-size: 13px; font-weight: 600; line-height: 1.55; }
+.paper-authors { margin: 0 0 6px; color: #5a6672; font-size: 11.5px; line-height: 1.7; }
+.paper-venue { margin: 0; color: var(--muted); font-size: 11px; font-style: italic; line-height: 1.6; }
+
+.bridge-papers > a { flex: 0 0 auto; margin-top: 14px; color: var(--red); font-size: 12px; }
+
+/* 两个滚动区共用细滚动条 */
+.bridge-step-scroll, .bridge-papers-scroll { scrollbar-width: thin; scrollbar-color: rgba(17,39,56,.2) transparent; }
+.bridge-step-scroll::-webkit-scrollbar, .bridge-papers-scroll::-webkit-scrollbar { width: 6px; }
+.bridge-step-scroll::-webkit-scrollbar-track, .bridge-papers-scroll::-webkit-scrollbar-track { background: transparent; }
+.bridge-step-scroll::-webkit-scrollbar-thumb, .bridge-papers-scroll::-webkit-scrollbar-thumb { background: rgba(17,39,56,.18); border-radius: 99px; }
+.bridge-step-scroll:focus-visible, .bridge-papers-scroll:focus-visible { outline: 2px solid rgba(180,58,50,.45); outline-offset: 2px; border-radius: 4px; }
 
 /* 招募名单 */
 .join-grid a {
@@ -406,7 +451,11 @@
   .proof-grid { grid-template-columns: 1fr; gap: 26px; padding: 24px; }
   .proof-mark { flex-direction: row; text-align: left; }
   .proof-mark img { width: 76px; }
-  .bridge-grid { grid-template-columns: 1fr; }
+  .bridge-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .bridge-steps { grid-template-rows: none; }
+  .bridge-step { min-height: 150px; }
+  .bridge-papers { max-height: 620px; }
+  .bridge-papers-scroll { max-height: 460px; }
 }
 @media (max-width: 640px) {
   .proof-claims { gap: 10px; }
