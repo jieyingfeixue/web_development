@@ -48,3 +48,21 @@
   function show(item){if(item.classList.contains('active'))return;items.forEach(node=>node.classList.toggle('active',node===item));visual.classList.add('is-changing');const preload=new Image();preload.onload=()=>{image.src=item.dataset.image;image.alt=item.dataset.title;kicker.textContent=item.dataset.kicker;title.textContent=item.dataset.title;summary.textContent=item.dataset.summary;requestAnimationFrame(()=>visual.classList.remove('is-changing'));};preload.src=item.dataset.image;}
   items.forEach(item=>{item.addEventListener('mouseenter',()=>show(item));item.addEventListener('focus',()=>show(item));item.addEventListener('click',()=>show(item));});
 })();
+(() => {
+  // 成果页：顶部下拉与页内导航在本页滚动到对应成果区块，不重新加载页面
+  const links=document.querySelectorAll('.nav-dropdown a[href*="achievements.html#"], .subnav a[href^="#"]');
+  links.forEach(link=>{
+    link.addEventListener('click',event=>{
+      const url=new URL(link.href,location.href);
+      if(url.pathname!==location.pathname||!url.hash)return;
+      const target=document.querySelector(url.hash);
+      if(!target)return;
+      event.preventDefault();
+      target.scrollIntoView({behavior:'instant',block:'start'});
+      try{history.replaceState(null,'',url.hash);}catch(e){}
+      document.querySelector('.fusion-top .nav')?.classList.remove('open');
+      document.querySelector('.mobile-toggle')?.setAttribute('aria-expanded','false');
+      document.querySelectorAll('.nav-group.open').forEach(group=>group.classList.remove('open'));
+    });
+  });
+})();

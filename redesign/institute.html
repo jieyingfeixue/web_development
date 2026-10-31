@@ -15,11 +15,11 @@
         <a class="nav-parent" href="achievements.html">成果 <span>⌄</span></a>
         <div class="nav-dropdown">
           <small>RESEARCH OUTPUTS</small>
-          <a href="papers.html"><b>论文成果</b><span>Publications</span></a>
-          <a href="patents.html"><b>专利成果</b><span>Patents</span></a>
-          <a href="projects.html"><b>科研项目</b><span>Projects</span></a>
-          <a href="software.html"><b>软件著作权</b><span>Software</span></a>
-          <a href="awards.html"><b>奖项与荣誉</b><span>Awards</span></a>
+          <a href="achievements.html#papers"><b>论文成果</b><span>Publications</span></a>
+          <a href="achievements.html#patents"><b>专利成果</b><span>Patents</span></a>
+          <a href="achievements.html#projects"><b>科研项目</b><span>Projects</span></a>
+          <a href="achievements.html#software"><b>软件著作权</b><span>Software</span></a>
+          <a href="achievements.html#awards"><b>奖项与荣誉</b><span>Awards</span></a>
         </div>
       </div>
       <a href="team.html">团队</a>
@@ -126,41 +126,68 @@
         <aside class="bridge-papers">
           <div class="bridge-papers-head"><span>SUPPORTING PUBLICATIONS</span><b>代表性论文</b></div>
           <div class="bridge-papers-scroll">
-            <ul>
-              <li>
-                <div class="paper-meta"><span>CVPR 2020</span><a href="https://dblp.org/rec/conf/cvpr/ZhouCF000WW020" target="_blank" rel="noopener">DBLP ↗</a></div>
-                <h4>Geometry and Learning Co-Supported Normal Estimation for Unstructured Point Cloud</h4>
-                <p class="paper-authors">Haoran Zhou, Honghua Chen, Yidan Feng, Qiong Wang, Jing Qin, Haoran Xie, Fu Lee Wang, Mingqiang Wei, Jun Wang</p>
-                <p class="paper-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition</p>
+            <ul class="np-list">
+              <li class="np-item">
+                <div class="np-meta"><span class="np-type">Conference Paper</span><span class="np-date">CVPR 2020</span></div>
+                <h4 class="np-title">Geometry and Learning Co-Supported Normal Estimation for Unstructured Point Cloud</h4>
+                <p class="np-authors">Haoran Zhou, Honghua Chen, Yidan Feng, Qiong Wang, Jing Qin, Haoran Xie, Fu Lee Wang, Mingqiang Wei, Jun Wang</p>
+                <p class="np-cite">IEEE/CVF Conference on Computer Vision and Pattern Recognition</p>
+                <p class="np-abstract">面向非结构化点云，将几何先验与学习方法结合，提升法向估计的稳定性与精度。</p>
               </li>
-              <li>
-                <div class="paper-meta"><span>CAD 2019</span><a href="https://dblp.org/rec/journals/cad/ChenHRXQGWW19" target="_blank" rel="noopener">DBLP ↗</a></div>
-                <h4>Data-driven Geometry-recovering Mesh Denoising</h4>
-                <p class="paper-authors">Honghua Chen, Jin Huang, Oussama Remil, Haoran Xie, Jing Qin, Yanwen Guo, Mingqiang Wei, Jun Wang</p>
-                <p class="paper-venue">Computer-Aided Design 114: 133–142</p>
+              <li class="np-item">
+                <div class="np-meta"><span class="np-type">Journal Article</span><span class="np-date">CAD 2019</span></div>
+                <h4 class="np-title">Data-driven Geometry-recovering Mesh Denoising</h4>
+                <p class="np-authors">Honghua Chen, Jin Huang, Oussama Remil, Haoran Xie, Jing Qin, Yanwen Guo, Mingqiang Wei, Jun Wang</p>
+                <p class="np-cite">Computer-Aided Design 114: 133–142</p>
+                <p class="np-abstract">以数据驱动方式恢复几何结构，在去除噪声的同时保留模型的关键几何特征。</p>
               </li>
-              <li>
-                <div class="paper-meta"><span>CGF 2019</span><a href="https://dblp.org/rec/journals/cgf/WeiGHXZKWQ19" target="_blank" rel="noopener">DBLP ↗</a></div>
-                <h4>Mesh Defiltering via Cascaded Geometry Recovery</h4>
-                <p class="paper-authors">Mingqiang Wei, X. Guo, J. Huang, Haoran Xie, Hua Zong, R. Kwan, Fu Lee Wang, Jing Qin</p>
-                <p class="paper-venue">Computer Graphics Forum 38(7): 591–605</p>
+              <li class="np-item">
+                <div class="np-meta"><span class="np-type">Journal Article</span><span class="np-date">CGF 2019</span></div>
+                <h4 class="np-title">Mesh Defiltering via Cascaded Geometry Recovery</h4>
+                <p class="np-authors">Mingqiang Wei, X. Guo, J. Huang, Haoran Xie, Hua Zong, R. Kwan, Fu Lee Wang, Jing Qin</p>
+                <p class="np-cite">Computer Graphics Forum 38(7): 591–605</p>
+                <p class="np-abstract">通过级联的几何恢复过程修复网格细节，减少去噪带来的特征损失。</p>
               </li>
-              <li>
-                <div class="paper-meta"><span>TVCG 2023</span><a href="https://dblp.org/rec/journals/tvcg/WeiCZXGW23" target="_blank" rel="noopener">DBLP ↗</a></div>
-                <h4>GeoDualCNN: Geometry-Supporting Dual Convolutional Neural Network for Noisy Point Clouds</h4>
-                <p class="paper-authors">Mingqiang Wei, Honghua Chen, Yingkui Zhang, Haoran Xie, Yanwen Guo, Jun Wang</p>
-                <p class="paper-venue">IEEE Transactions on Visualization and Computer Graphics 29(2): 1357–1370</p>
+              <li class="np-item">
+                <div class="np-meta"><span class="np-type">Journal Article</span><span class="np-date">TVCG 2023</span></div>
+                <h4 class="np-title">GeoDualCNN: Geometry-Supporting Dual Convolutional Neural Network for Noisy Point Clouds</h4>
+                <p class="np-authors">Mingqiang Wei, Honghua Chen, Yingkui Zhang, Haoran Xie, Yanwen Guo, Jun Wang</p>
+                <p class="np-cite">IEEE Transactions on Visualization and Computer Graphics 29(2): 1357–1370</p>
+                <p class="np-abstract">构建几何支撑的双卷积网络，用于含噪点云的特征学习与高质量去噪。</p>
               </li>
-              <li>
-                <div class="paper-meta"><span>TVCG 2024</span><a href="https://dblp.org/rec/journals/vc/ChenWCYRGXWW24" target="_blank" rel="noopener">DBLP ↗</a></div>
-                <h4>PointSee: Image Enhances Point Cloud</h4>
-                <p class="paper-authors">Lipeng Gu, Xuefeng Yan, Peng Cui, Lina Gong, Haoran Xie, Fu Lee Wang, Jing Qin, Mingqiang Wei</p>
-                <p class="paper-venue">IEEE Transactions on Visualization and Computer Graphics 30(9): 6291–6308</p>
+              <li class="np-item">
+                <div class="np-meta"><span class="np-type">Journal Article</span><span class="np-date">TVCG 2024</span></div>
+                <h4 class="np-title">PointSee: Image Enhances Point Cloud</h4>
+                <p class="np-authors">Lipeng Gu, Xuefeng Yan, Peng Cui, Lina Gong, Haoran Xie, Fu Lee Wang, Jing Qin, Mingqiang Wei</p>
+                <p class="np-cite">IEEE Transactions on Visualization and Computer Graphics 30(9): 6291–6308</p>
+                <p class="np-abstract">利用图像信息增强点云表示，提升点云处理任务中的几何细节恢复能力。</p>
               </li>
             </ul>
           </div>
           <a href="papers.html">查看全部论文成果 ↗</a>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="verification">
+    <div class="wrap">
+      <div class="page-section-head">
+        <div><div class="inst-kicker">QUALITY PROOF</div><h2>精度与性能，<br>由第三方验证。</h2></div>
+        <p>AeroBase 3D V1.0 面向航空三维测量场景，完成了从几何精度到百亿级点云处理的第三方验证。</p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-mark">
+          <img src="../imgs/cnas-testing-l18301.png" alt="CNAS 检测实验室认可标识，CNAS L18301">
+          <div><strong>CNAS L18301</strong><span>CNAS 检测实验室认可标识</span></div>
+        </div>
+        <div class="proof-claims">
+          <div class="proof-claim"><b>0.01 mm</b><span>铆钉齐平度误差</span></div>
+          <div class="proof-claim"><b>0.009 mm</b><span>翼身截面偏差</span></div>
+          <div class="proof-claim"><b>0.182 s</b><span>点云读取 / 亿点</span></div>
+          <div class="proof-claim"><b>0.095 s</b><span>波纹度检测 / m²</span></div>
+        </div>
+        <p class="proof-note">验证依据：GB/T 25000.51-2016；第三方检测机构：苏测检测技术有限公司；测试版本：AeroBase 3D V1.0。<br>Aerohand 3D 与 Aerowave 3D 的对应指标待补充。</p>
       </div>
     </div>
   </section>
