@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="图片占位">
+  <rect width="800" height="600" fill="#f7f5ef"/>
+  <g fill="none" stroke="#c9c3b7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="110" y="90" width="580" height="380" rx="18"/>
+    <path d="M110 380 270 240 370 330 470 220 690 400"/>
+    <circle cx="560" cy="170" r="34"/>
+  </g>
+  <text x="400" y="530" text-anchor="middle" fill="#8a857b" font-family="Microsoft YaHei, sans-serif" font-size="20" letter-spacing="4">IMAGE / 图片待补充</text>
+</svg>
